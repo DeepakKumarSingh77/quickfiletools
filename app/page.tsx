@@ -10,16 +10,16 @@ export default function HomePage() {
       <Header />
 
       <main>
-        {/* ── HERO ──────────────────────────────────────────── */}
+        {/* ── HERO ─────────────────────────────────────────── */}
         <section
           style={{
             background: "#1a1612",
-            padding: "5rem 2rem 4rem",
+            padding: "3.5rem 1.25rem 3rem",
             position: "relative",
             overflow: "hidden",
           }}
         >
-          {/* Subtle radial glow — decorative only */}
+          {/* Decorative glow */}
           <div
             aria-hidden="true"
             style={{
@@ -32,35 +32,29 @@ export default function HomePage() {
           />
 
           <div
-            className="mx-auto max-w-7xl"
-            style={{ position: "relative", zIndex: 1 }}
+            style={{ maxWidth: 1280, margin: "0 auto", position: "relative", zIndex: 1 }}
           >
-            <div
-              style={{
-                display: "grid",
-                gap: "3rem",
-                alignItems: "center",
-              }}
-              className="lg:grid-cols-[1.15fr_0.85fr]"
-            >
-              {/* Left: copy */}
+            {/* Two-column on lg, single column on mobile */}
+            <div className="pq-hero-grid">
+
+              {/* ── Left: Copy ── */}
               <div>
                 {/* Pill tag */}
                 <div
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: 8,
+                    gap: 7,
                     background: "rgba(232,213,176,0.1)",
-                    border: "1px solid rgba(232,213,176,0.22)",
+                    border: "1px solid rgba(232,213,176,0.2)",
                     color: "#E8D5B0",
-                    fontSize: "0.74rem",
+                    fontSize: "0.72rem",
                     fontWeight: 600,
                     letterSpacing: "0.09em",
                     textTransform: "uppercase",
-                    padding: "7px 16px",
+                    padding: "6px 14px",
                     borderRadius: 100,
-                    marginBottom: "1.5rem",
+                    marginBottom: "1.25rem",
                   }}
                 >
                   <span
@@ -70,65 +64,53 @@ export default function HomePage() {
                       background: "#E8D5B0",
                       borderRadius: "50%",
                       display: "inline-block",
+                      flexShrink: 0,
                     }}
                   />
                   Free online file tools
                 </div>
 
+                {/* Headline */}
                 <h1
                   style={{
                     fontFamily: "'Fraunces', Georgia, serif",
-                    fontSize: "clamp(2.6rem, 5vw, 4.2rem)",
+                    fontSize: "clamp(2.4rem, 8vw, 4.2rem)",
                     fontWeight: 900,
                     lineHeight: 1.06,
                     color: "#F4EFE6",
                     letterSpacing: "-0.03em",
-                    marginBottom: "1.25rem",
+                    marginBottom: "1rem",
                   }}
                 >
                   PDFQuick
                   <br />
-                  <em
-                    style={{
-                      fontStyle: "italic",
-                      color: "#E8D5B0",
-                      fontWeight: 300,
-                    }}
-                  >
+                  <em style={{ fontStyle: "italic", color: "#E8D5B0", fontWeight: 300 }}>
                     tools that just work
                   </em>
                 </h1>
 
+                {/* Sub-copy */}
                 <p
                   style={{
-                    fontSize: "1.05rem",
+                    fontSize: "clamp(0.95rem, 2.5vw, 1.05rem)",
                     lineHeight: 1.75,
                     color: "#9e9485",
                     maxWidth: 500,
-                    marginBottom: "2.25rem",
+                    marginBottom: "2rem",
                   }}
                 >
-                  Compress images, resize photos, generate QR codes, count words,
-                  and use PDF tools from one clean, fast, mobile-friendly website.
+                  Compress images, resize photos, generate QR codes, count words, and
+                  use PDF tools — all free, all in your browser.
                 </p>
 
-                {/* CTA — CSS class handles hover */}
+                {/* CTA */}
                 <a href="#tools" className="pq-btn-primary">
                   Explore tools
                   <ArrowRight size={17} />
                 </a>
 
-                {/* Stats row */}
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "2.5rem",
-                    flexWrap: "wrap",
-                    marginTop: "3rem",
-                    paddingTop: "2.25rem",
-                    borderTop: "1px solid rgba(255,255,255,0.07)",
-                  }}
-                >
+                {/* Mini stats */}
+                <div className="pq-stats-row">
                   {[
                     { value: `${tools.length}+`, label: "Tools available" },
                     { value: "100%", label: "Browser-based" },
@@ -138,7 +120,7 @@ export default function HomePage() {
                       <div
                         style={{
                           fontFamily: "'Fraunces', Georgia, serif",
-                          fontSize: "2rem",
+                          fontSize: "clamp(1.6rem, 4vw, 2rem)",
                           fontWeight: 700,
                           color: "#F4EFE6",
                           lineHeight: 1,
@@ -148,7 +130,7 @@ export default function HomePage() {
                       </div>
                       <div
                         style={{
-                          fontSize: "0.75rem",
+                          fontSize: "0.72rem",
                           color: "#6b6057",
                           textTransform: "uppercase",
                           letterSpacing: "0.08em",
@@ -161,62 +143,45 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
+
+              {/* ── Right: feature card (desktop only via CSS) ── */}
+              
+
             </div>
           </div>
         </section>
 
-        {/* ── TRUST BAR ──────────────────────────────────────── */}
-        <div
-          style={{
-            background: "#E8D5B0",
-            padding: "0.8rem 2rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "2.5rem",
-            flexWrap: "wrap",
-          }}
-        >
+        {/* ── TRUST BAR ──────────────────────────────────── */}
+        <div className="pq-trust-bar">
           {[
-            { icon: "🔒", text: "Files never leave your browser" },
-            { icon: "⚡", text: "No upload to servers" },
+            { icon: "🔒", text: "Files stay in your browser" },
+            { icon: "⚡", text: "No server upload" },
             { icon: "📱", text: "Works on mobile" },
           ].map(({ icon, text }) => (
-            <div
-              key={text}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 7,
-                fontSize: "0.78rem",
-                fontWeight: 600,
-                color: "#4a3f2c",
-                letterSpacing: "0.02em",
-                textTransform: "uppercase",
-              }}
-            >
+            <div key={text} className="pq-trust-item">
               <span>{icon}</span>
               {text}
             </div>
           ))}
         </div>
 
-        {/* ── TOOLS SECTION ──────────────────────────────────── */}
+        {/* ── TOOLS SECTION ──────────────────────────────── */}
         <section
           id="tools"
-          style={{ background: "#F4EFE6", padding: "4rem 1.5rem 5rem" }}
+          style={{ background: "#F4EFE6", padding: "3rem 1.25rem 4rem" }}
         >
-          <div className="mx-auto max-w-7xl">
+          <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+
             {/* Section header */}
-            <div style={{ marginBottom: "2rem" }}>
+            <div style={{ marginBottom: "1.75rem" }}>
               <div
                 style={{
-                  fontSize: "0.72rem",
+                  fontSize: "0.7rem",
                   fontWeight: 700,
                   color: "#9e9485",
                   textTransform: "uppercase",
                   letterSpacing: "0.12em",
-                  marginBottom: "0.5rem",
+                  marginBottom: "0.4rem",
                 }}
               >
                 All tools
@@ -233,7 +198,7 @@ export default function HomePage() {
                 <h2
                   style={{
                     fontFamily: "'Fraunces', Georgia, serif",
-                    fontSize: "2.2rem",
+                    fontSize: "clamp(1.8rem, 5vw, 2.4rem)",
                     fontWeight: 700,
                     color: "#1a1612",
                     letterSpacing: "-0.02em",
@@ -246,7 +211,7 @@ export default function HomePage() {
                   style={{
                     fontFamily: "'Fraunces', Georgia, serif",
                     fontStyle: "italic",
-                    fontSize: "1rem",
+                    fontSize: "0.95rem",
                     color: "#9e9485",
                   }}
                 >
@@ -255,11 +220,11 @@ export default function HomePage() {
               </div>
               <p
                 style={{
-                  marginTop: "0.6rem",
-                  fontSize: "0.9rem",
+                  marginTop: "0.5rem",
+                  fontSize: "0.88rem",
                   lineHeight: 1.7,
                   color: "#7a6e5f",
-                  maxWidth: 560,
+                  maxWidth: 520,
                 }}
               >
                 We will make every tool fully working one by one. Start with image
@@ -267,14 +232,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Tool grid */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
-                gap: "1rem",
-              }}
-            >
+            {/* Tool grid — responsive via CSS class */}
+            <div className="pq-tool-grid">
               {tools.map((tool) => (
                 <ToolCard key={tool.slug} tool={tool} />
               ))}
@@ -282,52 +241,42 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── CTA BANNER ─────────────────────────────────────── */}
+        {/* ── CTA BANNER ─────────────────────────────────── */}
         <section
           style={{
             background: "#1a1612",
-            margin: "0 1.5rem 2.5rem",
-            borderRadius: 20,
-            padding: "3rem 2.5rem",
+            margin: "0 1rem 2rem",
+            borderRadius: 18,
+            padding: "2.5rem 1.75rem",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: "2rem",
+            gap: "1.5rem",
             flexWrap: "wrap",
           }}
         >
-          <div>
+          <div style={{ minWidth: 0 }}>
             <h2
               style={{
                 fontFamily: "'Fraunces', Georgia, serif",
-                fontSize: "1.9rem",
+                fontSize: "clamp(1.5rem, 4vw, 1.9rem)",
                 fontWeight: 700,
                 color: "#F4EFE6",
                 lineHeight: 1.2,
-                marginBottom: "0.5rem",
+                marginBottom: "0.4rem",
                 letterSpacing: "-0.02em",
               }}
             >
               All tools,{" "}
-              <em
-                style={{
-                  color: "#E8D5B0",
-                  fontStyle: "italic",
-                  fontWeight: 300,
-                }}
-              >
+              <em style={{ color: "#E8D5B0", fontStyle: "italic", fontWeight: 300 }}>
                 always free
               </em>
             </h2>
-            <p
-              style={{ fontSize: "0.9rem", color: "#6b6057", lineHeight: 1.65 }}
-            >
-              We&apos;re supported by ads, not subscriptions. Use every tool without
-              creating an account.
+            <p style={{ fontSize: "0.88rem", color: "#6b6057", lineHeight: 1.65 }}>
+              Supported by ads, not subscriptions. No account needed.
             </p>
           </div>
 
-          {/* CSS class handles hover */}
           <a href="#tools" className="pq-cta-btn">
             Browse all tools
             <ArrowRight size={17} />

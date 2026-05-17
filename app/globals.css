@@ -29,11 +29,65 @@ a {
 }
 
 /* ─────────────────────────────────────────────────────
-   All hover effects live here as CSS classes.
-   No onMouseEnter / onMouseLeave needed anywhere.
+   HEADER
 ───────────────────────────────────────────────────── */
 
-/* Header nav links */
+/* Desktop nav — hidden on mobile */
+.pq-desktop-nav {
+  display: none;
+}
+@media (min-width: 640px) {
+  .pq-desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+}
+
+/* "Try Free" CTA — hide on mobile, show on sm+ */
+.pq-header-cta {
+  display: none;
+  background: #E8D5B0;
+  color: #1a1612;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 9px 20px;
+  border-radius: 8px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+@media (min-width: 640px) {
+  .pq-header-cta {
+    display: inline-block;
+  }
+}
+.pq-header-cta:hover { background: #d4be95; }
+
+/* Hamburger — show on mobile only */
+.pq-hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9e9485;
+  padding: 6px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.pq-hamburger:hover {
+  color: #F4EFE6;
+  background: rgba(255,255,255,0.06);
+}
+@media (min-width: 640px) {
+  .pq-hamburger {
+    display: none;
+  }
+}
+
+/* Nav link */
 .pq-nav-link {
   font-size: 0.8rem;
   font-weight: 600;
@@ -44,62 +98,157 @@ a {
 }
 .pq-nav-link:hover { color: #F4EFE6; }
 
-/* Header CTA button */
-.pq-header-cta {
+/* Mobile drawer links */
+.pq-mobile-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #9e9485;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: color 0.2s;
+  display: block;
+}
+.pq-mobile-link:last-child { border-bottom: none; }
+.pq-mobile-link:hover { color: #F4EFE6; }
+
+/* Mobile drawer CTA */
+.pq-mobile-cta {
+  display: block;
+  margin-top: 0.75rem;
   background: #E8D5B0;
   color: #1a1612;
-  font-weight: 600;
-  font-size: 0.82rem;
-  padding: 9px 20px;
-  border-radius: 8px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-align: center;
   transition: background 0.2s;
-  display: inline-block;
 }
-.pq-header-cta:hover { background: #d4be95; }
+.pq-mobile-cta:hover { background: #d4be95; }
 
-/* Footer links */
-.pq-footer-link {
-  font-size: 0.88rem;
-  color: #6b6057;
-  transition: color 0.2s;
+/* ─────────────────────────────────────────────────────
+   HERO LAYOUT
+───────────────────────────────────────────────────── */
+
+.pq-hero-grid {
+  display: grid;
+  gap: 2.5rem;
 }
-.pq-footer-link:hover { color: #E8D5B0; }
+@media (min-width: 1024px) {
+  .pq-hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 3rem;
+  }
+}
 
-/* Tool card */
+/* Hide the right stats card on mobile — shows on lg */
+.pq-hero-right {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .pq-hero-right {
+    display: block;
+  }
+}
+
+/* Stats row inside hero */
+.pq-stats-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ─────────────────────────────────────────────────────
+   TRUST BAR
+───────────────────────────────────────────────────── */
+
+.pq-trust-bar {
+  background: #E8D5B0;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem 2rem;
+  flex-wrap: wrap;
+}
+
+.pq-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4a3f2c;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────────────
+   TOOL GRID
+───────────────────────────────────────────────────── */
+
+.pq-tool-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+@media (min-width: 480px) {
+  .pq-tool-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .pq-tool-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .pq-tool-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ─────────────────────────────────────────────────────
+   TOOL CARD
+───────────────────────────────────────────────────── */
+
 .pq-tool-card {
   display: flex;
   flex-direction: column;
   background: #ffffff;
   border: 1px solid #e4ddd2;
-  border-radius: 18px;
-  padding: 1.4rem;
+  border-radius: 16px;
+  padding: 1.25rem;
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-  position: relative;
-  overflow: hidden;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
 }
 .pq-tool-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(26, 22, 18, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(26, 22, 18, 0.1);
   border-color: #c5bdb0;
 }
 .pq-tool-card-arrow {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 1.1rem;
+  gap: 5px;
+  margin-top: 1rem;
   font-size: 0.82rem;
   font-weight: 700;
   color: #1a1612;
   transition: gap 0.2s;
 }
-.pq-tool-card:hover .pq-tool-card-arrow { gap: 12px; }
+.pq-tool-card:hover .pq-tool-card-arrow { gap: 10px; }
 
-/* Primary button */
+/* ─────────────────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────────────────── */
+
 .pq-btn-primary {
   display: inline-flex;
   align-items: center;
@@ -117,7 +266,37 @@ a {
   transform: translateY(-1px);
 }
 
-/* Back button on tool page */
+.pq-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #E8D5B0;
+  color: #1a1612;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 13px 26px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.pq-cta-btn:hover { background: #d4be95; }
+
+/* ─────────────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────────────── */
+
+.pq-footer-link {
+  font-size: 0.88rem;
+  color: #6b6057;
+  transition: color 0.2s;
+}
+.pq-footer-link:hover { color: #E8D5B0; }
+
+/* ─────────────────────────────────────────────────────
+   TOOL DETAIL PAGE
+───────────────────────────────────────────────────── */
+
 .pq-back-btn {
   display: inline-flex;
   align-items: center;
@@ -137,22 +316,9 @@ a {
   color: #1a1612;
 }
 
-/* CTA banner button */
-.pq-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #E8D5B0;
-  color: #1a1612;
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 13px 26px;
-  border-radius: 10px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: background 0.2s;
-}
-.pq-cta-btn:hover { background: #d4be95; }
+/* ─────────────────────────────────────────────────────
+   MISC
+───────────────────────────────────────────────────── */
 
 .bg-checker {
   background-color: #f8fafc;

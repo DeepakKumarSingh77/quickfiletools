@@ -4,8 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
+const NAV_LINKS = [
+  { href: "/#tools", label: "Tools" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <header
@@ -17,21 +23,26 @@ export default function Header() {
         zIndex: 50,
       }}
     >
+      {/* ── Top bar ── */}
       <div
-        className="mx-auto max-w-7xl"
         style={{
+          maxWidth: 1280,
+          margin: "0 auto",
+          padding: "0.875rem 1.25rem",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "1rem 2rem",
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <Link
+          href="/"
+          style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}
+        >
           <span
             style={{
-              width: 36,
-              height: 36,
+              width: 34,
+              height: 34,
               background: "#E8D5B0",
               borderRadius: 8,
               display: "grid",
@@ -39,12 +50,12 @@ export default function Header() {
             }}
           >
             <svg
-              width="18"
-              height="18"
+              width="17"
+              height="17"
               viewBox="0 0 24 24"
               fill="none"
               stroke="#1a1612"
-              strokeWidth="2.2"
+              strokeWidth="2.3"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
@@ -58,7 +69,7 @@ export default function Header() {
             style={{
               fontFamily: "'Fraunces', Georgia, serif",
               fontWeight: 700,
-              fontSize: "1.15rem",
+              fontSize: "1.1rem",
               color: "#F4EFE6",
               letterSpacing: "-0.01em",
             }}
@@ -67,63 +78,60 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav style={{ display: "flex", alignItems: "center", gap: "1.75rem" }} className="hidden sm:flex">
-          <Link href="/#tools" className="pq-nav-link">Tools</Link>
-          <Link href="/about" className="pq-nav-link">About</Link>
-          <Link href="/contact" className="pq-nav-link">Contact</Link>
+        {/* Desktop nav — CSS hides on mobile */}
+        <nav className="pq-desktop-nav">
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link key={href} href={href} className="pq-nav-link">
+              {label}
+            </Link>
+          ))}
         </nav>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        {/* Right side */}
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          {/* CTA hidden on mobile via CSS */}
           <Link href="/#tools" className="pq-header-cta">
             Try Free
           </Link>
 
-          {/* Mobile toggle */}
+          {/* Hamburger — CSS hides on sm+ */}
           <button
-            className="sm:hidden"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Toggle menu"
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              color: "#9e9485",
-              padding: 4,
-              display: "flex",
-            }}
+            className="pq-hamburger"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
+      {/* ── Mobile drawer ── */}
+      {open && (
         <div
           style={{
-            background: "#221e18",
-            borderTop: "1px solid rgba(255,255,255,0.07)",
-            padding: "1rem 2rem",
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.75rem",
+            background: "#1e1a14",
+            borderTop: "1px solid rgba(255,255,255,0.06)",
+            padding: "1rem 1.25rem 1.25rem",
           }}
         >
-          {[
-            { href: "/#tools", label: "Tools" },
-            { href: "/about", label: "About" },
-            { href: "/contact", label: "Contact" },
-          ].map(({ href, label }) => (
+          {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              onClick={() => setMobileOpen(false)}
-              style={{ fontSize: "0.95rem", fontWeight: 500, color: "#9e9485" }}
+              className="pq-mobile-link"
+              onClick={() => setOpen(false)}
             >
               {label}
             </Link>
           ))}
+          <Link
+            href="/#tools"
+            className="pq-mobile-cta"
+            onClick={() => setOpen(false)}
+          >
+            Try Free →
+          </Link>
         </div>
       )}
     </header>
