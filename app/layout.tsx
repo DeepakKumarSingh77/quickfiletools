@@ -2,13 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-site.vercel.app"),
+  metadataBase: new URL("https://quickfiletools-six.vercel.app/"),
   title: {
     default: "PDFQuick - Free Online File Tools",
     template: "%s | PDFQuick",
   },
   description:
     "Free online PDF, image, QR code, media, and writing tools. Compress, convert, resize, merge, split, and create files in your browser.",
+  
+  verification: {
+    google: "2XUNBJoY6kJEjd5zkFXvEAY5psx9dVbG4-69dyKTSTg", // 👈 paste from Search Console
+  },
+
+
   keywords: [
     "free PDF tools",
     "compress PDF",
@@ -25,7 +31,7 @@ export const metadata: Metadata = {
     title: "PDFQuick - Free Online File Tools",
     description:
       "Free online PDF, image, QR code, media, and writing tools for everyday file work.",
-    url: "https://your-site.vercel.app",
+    url: "https://quickfiletools-six.vercel.app",
     siteName: "PDFQuick",
     type: "website",
   },
