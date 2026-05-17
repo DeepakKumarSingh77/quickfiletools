@@ -1,23 +1,3 @@
-// import type { Metadata } from "next";
-// import "./globals.css";
-
-// export const metadata: Metadata = {
-//   title: "PDFQuick - Free Online File Tools",
-//   description:
-//     "Free online PDF, image, QR code, and writing tools. Fast browser-based utilities for everyday file work.",
-// };
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <html lang="en">
-//       <body>{children}</body>
-//     </html>
-//   );
-// }
 import type { Metadata } from "next";
 import "./globals.css";
 

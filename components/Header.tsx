@@ -1,39 +1,3 @@
-// import Link from "next/link";
-
-// export default function Header() {
-//   return (
-//     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur">
-//       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-//         <Link href="/" className="flex items-center gap-3 font-black">
-//           <span className="grid h-10 w-10 place-items-center rounded-xl bg-gray-950 text-white">
-//             PQ
-//           </span>
-//           <span className="text-lg">PDFQuick</span>
-//         </Link>
-
-//         <nav className="hidden items-center gap-6 text-sm font-semibold text-gray-600 sm:flex">
-//           <Link href="/#tools" className="hover:text-gray-950">
-//             Tools
-//           </Link>
-//           <Link href="/about" className="hover:text-gray-950">
-//             About
-//           </Link>
-//           <Link href="/contact" className="hover:text-gray-950">
-//             Contact
-//           </Link>
-//         </nav>
-
-//         <Link
-//           href="/#tools"
-//           className="rounded-lg bg-gray-950 px-4 py-2 text-sm font-bold text-white"
-//         >
-//           Start
-//         </Link>
-//       </div>
-//     </header>
-//   );
-// }
-
 "use client";
 
 import Link from "next/link";
