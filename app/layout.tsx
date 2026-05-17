@@ -1,49 +1,68 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const SITE_URL = "https://quickfiletools-six.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://quickfiletools-six.vercel.app/"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "PDFQuick - Free Online File Tools",
+    default: "PDFQuick – Free Online PDF & Image Tools",
     template: "%s | PDFQuick",
   },
   description:
-    "Free online PDF, image, QR code, media, and writing tools. Compress, convert, resize, merge, split, and create files in your browser.",
+    "Free online tools to compress images, resize photos, merge PDFs, generate QR codes, and more. Fast, private, and browser-based — no sign-up needed.",
   
   verification: {
     google: "2XUNBJoY6kJEjd5zkFXvEAY5psx9dVbG4-69dyKTSTg", // 👈 paste from Search Console
   },
-
-
   keywords: [
-    "free PDF tools",
-    "compress PDF",
-    "merge PDF",
-    "split PDF",
     "compress image",
     "resize image",
-    "JPG to PDF",
-    "PDF to JPG",
-    "QR code generator",
+    "merge pdf",
+    "pdf to jpg",
+    "qr code generator",
     "word counter",
+    "free online tools",
+    "image converter",
+    "remove background",
   ],
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
-    title: "PDFQuick - Free Online File Tools",
-    description:
-      "Free online PDF, image, QR code, media, and writing tools for everyday file work.",
-    url: "https://quickfiletools-six.vercel.app",
-    siteName: "PDFQuick",
     type: "website",
+    siteName: "PDFQuick",
+    title: "PDFQuick – Free Online PDF & Image Tools",
+    description:
+      "Compress images, convert PDFs, generate QR codes and more — all free, all in your browser.",
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary",
+    title: "PDFQuick – Free Online PDF & Image Tools",
+    description:
+      "Compress images, convert PDFs, generate QR codes and more — all free, all in your browser.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

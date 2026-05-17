@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import ToolCard from "@/components/ToolCard";
 import { tools } from "@/lib/tools";
 import { ArrowRight, ShieldCheck, Zap, Globe2 } from "lucide-react";
+import { HomeJsonLd } from "@/components/JsonLd";
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <Header />
 
       <main>
+        <HomeJsonLd />
         {/* ── HERO ─────────────────────────────────────────── */}
         <section
           style={{

@@ -3,6 +3,7 @@ import { ArrowLeft, CheckCircle2, Clock3 } from "lucide-react";
 import { notFound } from "next/navigation";
 import ToolWorkspace from "@/components/ToolWorkspace";
 import { getTool, tools } from "@/lib/tools";
+import { ToolJsonLd } from "@/components/JsonLd";
 
 type PageProps = {
   params: Promise<{
@@ -47,6 +48,7 @@ export default async function ToolPage({ params }: PageProps) {
         padding: "1.75rem 1.25rem",
       }}
     >
+      <ToolJsonLd tool={tool} />
       <div className="mx-auto max-w-5xl">
 
         {/* Back button — CSS class handles hover */}
