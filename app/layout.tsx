@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   verification: {
     google: "2XUNBJoY6kJEjd5zkFXvEAY5psx9dVbG4-69dyKTSTg", // 👈 paste from Search Console
     other: {
-      "msvalidate.01": "FECC996082E1D5514A9B45F9F804789C",
+      "msvalidate.01":["FECC996082E1D5514A9B45F9F804789C"],
     },
   },
   keywords: [
