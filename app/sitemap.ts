@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { tools } from "@/lib/tools";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://your-site.vercel.app";
+  const baseUrl = "https://quickfiletools-six.vercel.app";
 
   const staticPages = ["", "/about", "/privacy", "/terms", "/contact"].map(
     (path) => ({
