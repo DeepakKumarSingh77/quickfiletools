@@ -54,7 +54,7 @@ export const tools: Tool[] = [
 },
   {
     slug: "compress-pdf",
-    title: "Compress PDF",
+    title: "Compress PDF Online Free",
     description: "Reduce PDF file size while keeping pages clear.",
     category: "PDF",
     icon: FileArchive,
